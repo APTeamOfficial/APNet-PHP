@@ -4,7 +4,7 @@ A simple library based on CURL For PHP, You can use this library to send request
 # Example
 
 Instagram Login Script
-<code>
+<pre>
 
 <?php
 $username = $_GET["userName"];
@@ -27,7 +27,8 @@ $request = $Request->Post("https://www.instagram.com/accounts/login/ajax/", "def
 $source = $Request->getResponse($request);
 echo $source;
 ?>
-</code>
+
+</pre>
 
 # How to use
 
