@@ -4,7 +4,7 @@ A simple library based on CURL For PHP, You can use this library to send request
 # Example
 
 Instagram Login Script
-<pre>
+```
 <?php
 $username = $_GET["userName"];
 $password = $_GET["passWord"];
@@ -27,7 +27,7 @@ $source = $Request->getResponse($request);
 echo $source;
 ?>
 
-</pre>
+```
 
 # How to use
 
