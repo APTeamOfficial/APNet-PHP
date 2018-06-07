@@ -135,5 +135,11 @@ class APNet
             }
         }
     }
+
+    public function getStringBetween($stringFirst, $stringLast, $source)
+    {
+        preg_match("/$stringFirst(.*)\b$stringLast/", $source, $matches);
+        return $matches;
+    }
 }
 ?>
