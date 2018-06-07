@@ -5,7 +5,6 @@ A simple library based on CURL For PHP, You can use this library to send request
 
 Instagram Login Script
 <pre>
-
 <?php
 $username = $_GET["userName"];
 $password = $_GET["passWord"];
