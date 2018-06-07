@@ -103,12 +103,12 @@ class APNet
             curl_setopt($curl, CURLOPT_ACCEPT_ENCODING, $this->acceptEncoding);
             curl_setopt($curl, CURLOPT_POSTFIELDS, $postFields);
             curl_setopt($curl, CURLOPT_VERBOSE, true);
+
             return $curl;
         } catch (Exception $E) {
             return $E->getMessage();
         }
     }
-
 
     public function getResponse($request)
     {
