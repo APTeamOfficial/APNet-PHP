@@ -3,14 +3,29 @@ A simple library based on CURL For PHP, You can use this library to send request
 
 # Example
 
+Instagram Login Script
 <pre>
+<?php
+$username = $_GET["userName"];
+$password = $_GET["passWord"];
 include "APNet.php";
-$AP = new APNet();
-$AP->addCookie("cookieName","cookieValue");
-$AP->timeOut=1000 (must be int)
-$Req = $AP->Get("yoursite.com"); //this is your created request , ready to get response
-$Source = $AP->getResponse($Req); 
-$Cookies = $AP->getHeader_Cookies($Source); //you have to get cookies from response , no request!
+$Request = new APNet();
+$PostFields = "username=$username&password=$password&queryParams=%7B%7D";
+$Cookie = "Cookie: rur=FTW; csrftoken=vWvPmDpfC0cuyohcFtnRUqG68DSRjBJ0; mid=WxgRagALAAFfQ1Ovi5AT6uALqKNk; ig_cb=1; mcd=3;;";
+$header = array(
+     'x-csrftoken: vWvPmDpfC0cuyohcFtnRUqG68DSRjBJ0',
+     'x-instagram-ajax: 82b04fd172a3',
+     'x-requested-with: XMLHttpRequest',
+);
+$Request->customHeader = $header;
+$Request->timeOut = 1000;
+$Request->redirectAble = true;
+$Request->Referer = "https://www.instagram.com/";
+$Request->cookie = $Cookie;
+$request = $Request->Post("https://www.instagram.com/accounts/login/ajax/", "defult", $PostFields);
+$source = $Request->getResponse($request);
+echo $source;
+?>
 </pre>
 
 # How to use
